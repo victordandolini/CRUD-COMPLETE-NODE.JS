@@ -4,11 +4,14 @@ import HelloController from "./controllers/HelloController";
 import RepositoriesController from "./controllers/RepositoriesController";
 import UsersController from "./controllers/UsersController";
 import auth from "./middlewares/auth";
+import SessionsController from "./middlewares/SessionsController";
 
 
 const routes = new Router();
 
 // controller public
+
+routes.post('/sessions', SessionsController.create)
 routes.get('/hello', HelloController.index)
 
 routes.use(auth);
