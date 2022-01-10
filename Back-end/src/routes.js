@@ -1,10 +1,9 @@
 import { Router } from "express";
-import { route } from "express/lib/application";
 import HelloController from "./controllers/HelloController";
 import RepositoriesController from "./controllers/RepositoriesController";
 import UsersController from "./controllers/UsersController";
 import auth from "./middlewares/auth";
-import SessionsController from "./middlewares/SessionsController";
+import SessionsController from "./controllers/SessionsController";
 
 
 const routes = new Router();
@@ -28,6 +27,6 @@ routes.delete('/users/:id', UsersController.destroy);
 
 routes.get('/users/:user_id/repositories', RepositoriesController.index)
 routes.post('/users/:user_id/repositories', RepositoriesController.create);
-routes.delete('/users/:user_id/repositories', RepositoriesController.destroy);
+routes.delete('/users/:user_id/repositories/:id', RepositoriesController.destroy);
 
 export default routes;
