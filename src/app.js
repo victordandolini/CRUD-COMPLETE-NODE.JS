@@ -9,7 +9,6 @@ class App{
         this.server = express();
         this.middlewares();
         this.routes();
-        this.server.use('/.netlify/functions/api', routes)
     }
 
     middlewares(){
